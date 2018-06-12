@@ -281,16 +281,19 @@
 <p>声希科技独家的英语语音评测技术MDD(Mispronunciation Detection and Diagnosis)，可用于英语朗读和复述等场景，能实时为英语语音提供句子、单词、音节和音素级别的打分和纠错，为学生自主英文发音练习提供及时可靠的反馈。</p>
 <h3 id='api'>API种类</h3>
 <p>SpeechX API</p>
-<h2 id='2d2b23740a'>请求方式及参数</h2><pre class="highlight shell tab-shell"><code>
+<h2 id='2d2b23740a'>请求方式及参数</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer [TOKEN]"</span> 
+     -F <span class="nv">myWavfile</span><span class="o">=</span>@AUDIO_FILE 
+     -F <span class="nv">word_name</span><span class="o">=</span><span class="s2">"Just a little light-headed."</span> 
+     POST
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s">"[TOKEN]"</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">"[POST]"</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="s">"[PATH_OF_AUDIO]"</span>
+<span class="n">audio_file</span> <span class="o">=</span> <span class="s">"[PATH_OF_AUDIO]"</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s">"Just a little light-headed."</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">audio</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">audio_file</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
 </code></pre>
 <p>您可以<a href="填写申请表的地址">点击这里</a>，申请一个测试API。</p>
